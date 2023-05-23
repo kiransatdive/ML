@@ -9,6 +9,8 @@ sns.displot((df['thalach']))
 sns.lineplot(x='sex',y='thalach',data=df)
 sex_df=pd.DataFrame(df['sex'].value_counts())]
 sex_df
+plt.scatter(df['thalach'], df['age'])
+plt.show()
 plt.figure(figsize=(12,12))
 sns.pairplot(df,hue='sex',palette='Blues')
 plt.pie(sex_df['sex'],labels=sex_df.index)

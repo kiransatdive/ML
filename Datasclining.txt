@@ -1,0 +1,37 @@
+import pandas as pd
+import numpy as npdf=pd.read_csv('heart.csv')
+df
+df.shape
+df.isnull.sim()
+df.drop(columns=['sex'],axis=1,inplace=True)
+df.dropna(axis=0,inplace=True)
+df.dropna()
+df.describe()
+df.rename(columns={'num':'number','thal':'thalach'},inplace=True)
+df.rename
+df_subset1=df[['age','cp','trestbps','chol','fbs','restecg','thalach','exang']]
+df_subset2=df[['exang','oldpeak','slope']]
+df_subset1.head()
+df_subset2.head()
+integrated_data=pd.merge(df_subset1,df_subset2,on='exang')
+integrated_data.head()
+df.info()
+y=df[['target']]
+x=df.drop(y,axis=1)
+y.head(2)
+x.head(2)
+y['target'].value_counts()
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+x_train.shape,x_test.shape,y_train.shape,y_test.shape
+from sklearn.linear_model import LogisticRegression
+
+lr=LogisticRegression()
+
+model=lr.fit(x_train,y_train)
+print("Model built successfully")
+y_test['Prediction']=model.predict(x_test)
+y_test.head()
+from sklearn.metrics import accuracy_score
+
+print(accuracy_score(y_test['target'],y_test['Prediction']))

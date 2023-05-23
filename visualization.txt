@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv('heart.csv')
+df.head(5)
+sns.barplot(x='sex',y='thalach',data=df)
+sns.displot((df['thalach']))
+sns.lineplot(x='sex',y='thalach',data=df)
+sex_df=pd.DataFrame(df['sex'].value_counts())]
+sex_df
+plt.figure(figsize=(12,12))
+sns.pairplot(df,hue='sex',palette='Blues')
+plt.pie(sex_df['sex'],labels=sex_df.index)
+plt.bar(sex_df.index,sex_df['sex'])
+plt.show()

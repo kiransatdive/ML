@@ -1,0 +1,20 @@
+import pandas as pd
+import numpy as np
+import io
+df=pd.read_csv('dataset_Facebook.csv')
+df
+df.columns
+df['type']
+df1_subset1=df[['type','category']].loc[0:15]
+df1_subset1
+df2_subset2=df[['pagetotallikes','postmonth']].loc[15:30]
+df2_subset
+merging=pd.concat([df1_subset1,df2_subset2])
+merging
+df.transpose()
+sort_values=df.sort_values('pagetotallikes',ascending=False)
+sort_values
+shaping=df.shape
+shaping
+pivot_table=pd.pivot_table(df,index=['type','category'],values='comment')
+pivot_table
